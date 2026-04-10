@@ -1,6 +1,7 @@
 # Skool Price Check
-Simple script to check and alert skool community price
 
-* 1 Scrape price
-* 2 Compare with preferred
-* 3 If not as should be for a number of minutes then alert in slack
+Simple script to check skool community price and alert in slack
+
+* Scrape price
+* Compare with preferred
+* If not as should be for a number of minutes then alert in slack
