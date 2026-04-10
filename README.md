@@ -1,8 +1,3 @@
-<BS>I have compiled the entire system documentation into a single, no-frills README.md file. You can copy the block below and save it as README.md in your project's root directory.
-
-Markdown
-
-
 # Skool Price Monitor
 
 ### Functionality
