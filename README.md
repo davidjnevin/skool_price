@@ -31,11 +31,13 @@ This application monitors the price of a Skool community by scraping the site's 
 ## Installation
 1. Clone the repository to the local machine or server.
 1. Create a .env file in the root directory:
-Plaintext
+
+```Plaintext
 SKOOL_URL=[https://www.skool.com/your-community/about](https://www.skool.com/your-community/about)
-CORRECT_PRICE=4800
+CORRECT_PRICE=29
 ALERT_THRESHOLD=5
 SLACK_WEBHOOK_URL=[https://hooks.slack.com/services/YOUR/WEBHOOK/HERE](https://hooks.slack.com/services/YOUR/WEBHOOK/HERE)
+```
 
 ### Initialize and sync the environment:
 ```python
