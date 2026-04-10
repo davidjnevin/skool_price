@@ -1,3 +1,4 @@
+import json
 import logging
 import requests
 from bs4 import BeautifulSoup
@@ -13,20 +14,29 @@ def get_skool_price(url):
 
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # We search for the span inside the div with the specific class
-        # Note: We use a partial match for the class to be safer
-        info_item = soup.find('div', class_='styled__InfoItem')
+        # 1. Find the script tag containing the JSON data
+        script_tag = soup.find('script', id='__NEXT_DATA__')
 
-        if info_item:
-            price_text = info_item.find('span').text
-            # price_text is currently "$4,800/year"
-            # We need to turn this into a clean number: 4800
-            clean_price = "".join(filter(str.isdigit, price_text))
-            return int(clean_price)
+        if script_tag:
+            # 2. Parse the text inside the script tag as JSON
+            data = json.loads(script_tag.string)
 
-        logging.warning("Could not find the price element on the page.")
+            # 3. Navigate the dictionary to find the displayPrice
+            # Based on your source code: props -> pageProps -> currentGroup -> metadata -> displayPrice
+            group_metadata = data['props']['pageProps']['currentGroup']['metadata']
+            display_price_raw = group_metadata.get('displayPrice')
+
+            if display_price_raw:
+                # The price is stored as a stringified JSON: '{"currency":"usd","amount":480000...}'
+                price_data = json.loads(display_price_raw)
+
+                # Skool stores $4,800 as 480000 (in cents)
+                amount_in_cents = price_data.get('amount')
+                return amount_in_cents // 100  # Convert to dollars
+
+        logging.warning("Could not find the price data in the JSON payload.")
         return None
 
     except Exception as e:
-        logging.error(f"Scraping error: {e}")
+        logging.error(f"Data extraction error: {e}")
         return None
