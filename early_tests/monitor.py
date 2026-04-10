@@ -3,6 +3,7 @@ import time
 import logging
 from dotenv import load_dotenv
 from scraper import get_skool_price
+from notifier import send_slack_alert
 
 # Professional logging setup
 logging.basicConfig(
@@ -45,10 +46,10 @@ def main():
         # Logic: Compare counter against our new ENV threshold
         if wrong_price_count >= threshold and not alert_sent:
             logging.critical(f"PRICE WRONG FOR {threshold} MINUTES. TRIGGERING ALERT...")
-            # send_slack_alert(current_price) <--- Next Step
+            send_slack_alert(current_price, target_price)
             alert_sent = True
 
-        time.sleep(60)
+        time.sleep(10)
 
 if __name__ == "__main__":
     main()
