@@ -33,10 +33,10 @@ This application monitors the price of a Skool community by scraping the site's 
 1. Create a .env file in the root directory:
 
 ```Plaintext
-SKOOL_URL=[https://www.skool.com/your-community/about](https://www.skool.com/your-community/about)
+SKOOL_URL=https://www.skool.com/your-community/about
 CORRECT_PRICE=29
 ALERT_THRESHOLD=5
-SLACK_WEBHOOK_URL=[https://hooks.slack.com/services/YOUR/WEBHOOK/HERE](https://hooks.slack.com/services/YOUR/WEBHOOK/HERE)
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/HERE
 ```
 
 ### Initialize and sync the environment:
