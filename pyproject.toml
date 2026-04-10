@@ -1,0 +1,14 @@
+[project]
+name = "skool-monitor"
+version = "0.1.0"
+description = "Price monitoring for Skool communities"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.uv]
+managed = true
