@@ -40,21 +40,18 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/HERE
 ```
 
 ### Initialize and sync the environment:
-```python
-Bash
+```bash
 uv sync
 ```
 
 ## Usage
 ### Start the monitor:
-```python
-Bash
+```bash
 uv run app/monitor.py
 ```
 
 ### Test Slack connectivity:
-```python
-Bash
+```bash
 uv run app/test_slack.py
 ```
 
