@@ -56,7 +56,9 @@ uv run app/test_slack.py
 ```
 
 ### Configuration Details
+```text
 SKOOL_URL: The public "About" page of the community.
 CORRECT_PRICE: The numerical USD value the script expects.
 ALERT_THRESHOLD: The number of minutes (checks) the price must remain incorrect before an alert is sent.
 SLACK_WEBHOOK_URL: The Incoming Webhook URL generated from the Slack App directory.
+```
